@@ -16,7 +16,7 @@ frames
 
 ## Installation
 
-You can install the released version of ezxfig from
+You can install the development version of ezxfig from
 [GitHub](https://github.com/EricLamphere/ezxfig) with:
 
 ``` r
