@@ -1,13 +1,12 @@
 Package: ezxfig
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Transfigure data frames
+Version: 0.0.1
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Eric",
+           family = "Lamphere",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "ericjlamphere@gmail.com")
+Description: Provides convenient functions for manipulating data frames
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0)

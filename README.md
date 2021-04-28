@@ -12,7 +12,7 @@ status](https://www.r-pkg.org/badges/version/ezxfig)](https://CRAN.R-project.org
 <!-- badges: end -->
 
 Transfigure (transform into something more beautiful or elevated) data
-tables
+frames
 
 ## Installation
 

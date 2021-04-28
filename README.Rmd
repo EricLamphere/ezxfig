@@ -11,7 +11,7 @@ output: github_document
 [![CRAN status](https://www.r-pkg.org/badges/version/ezxfig)](https://CRAN.R-project.org/package=ezxfig)
 <!-- badges: end -->
 
-Transfigure (transform into something more beautiful or elevated) data tables
+Transfigure (transform into something more beautiful or elevated) data frames
 
 ## Installation
 
