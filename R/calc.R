@@ -8,9 +8,14 @@
 #' @return A data frame with the newly calculated columns.
 #' @examples
 #' calc(mpg, "average mpg", "mean(c(cty, hwy), na.rm = TRUE)")
-#' @importFrom dplyr "%>%" mutate_
+#' @importFrom dplyr "%>%" mutate
 #' @export
-calc <- function(df, labels, formulas, prefix = ""){
+
+# TODO: if a column is going to be overwritten, print a message for each column name
+# TODO: if a formula references a column that doesn't exist in df, exclude it
+# TODO: add fun param giving the option to send an error or warning if a formula contains a column
+#       that doesn't exist in df
+calc <- function(df, labels, formulas, prefix = "") {
   mutate_vec <-
     setNames(
       rlang::parse_exprs(formulas),
@@ -19,7 +24,7 @@ calc <- function(df, labels, formulas, prefix = ""){
 
   calculated <- df %>%
     dplyr::mutate(
-      !!! mutate_vec
+      !!!mutate_vec
     )
   return(calculated)
 }

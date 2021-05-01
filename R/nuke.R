@@ -14,35 +14,33 @@
 #' @importFrom tidyr replace_na
 #' @import dplyr
 #' @export
-nuke <- function(
-  data,
-  nuke_value = NA,
-  ash = 0,
-  exact = TRUE,
-  where = NULL,
-  which_cols = colnames(data)
-){
+nuke <- function(data,
+                 nuke_value = NA,
+                 ash = 0,
+                 exact = TRUE,
+                 where = NULL,
+                 which_cols = colnames(data)) {
   data.1 <- data %>%
     mutate(..ID_COL.. = 1:n())
 
   danger_zone <- data.1 %>%
-    (function(x){
-      if(is.null(where)){
+    (function(x) {
+      if (is.null(where)) {
         x
       } else {
         # apply the filter
         x %>% filter(eval(rlang::parse_expr(where)))
       }
     }) %>%
-    (function(x){
-      if(nrow(x) > 0){
+    (function(x) {
+      if (nrow(x) > 0) {
         x %>%
           mutate(
             across(
               all_of(which_cols),
-              ~ if(is.na(nuke_value)){
+              ~ if (is.na(nuke_value)) {
                 replace_na(x, ash)
-              } else if(exact){
+              } else if (exact) {
                 replace(x, x == nuke_value, ash)
               } else {
                 replace(x, x %=~% nuke_value, ash)
@@ -55,23 +53,27 @@ nuke <- function(
     })
 
   safe_zone <- data.1 %>%
-    (function(x){
-      if(is.null(where)){
+    (function(x) {
+      if (is.null(where)) {
         x %>%
           filter(..ID_COL.. == 0)
       } else {
         # apply the filter
-        x %>% filter(!eval(rlang::parse_expr(where)))
+        x %>%
+          filter(!eval(rlang::parse_expr(where)))
       }
     })
 
 
   aftermath <- data.1 %>%
     select(..ID_COL..) %>%
-    left_join(bind_rows(
-      safe_zone,
-      danger_zone
-    ), by = "..ID_COL..") %>%
+    left_join(
+      bind_rows(
+        safe_zone,
+        danger_zone
+      ),
+      by = "..ID_COL.."
+    ) %>%
     select(-..ID_COL..)
 
   return(aftermath)
