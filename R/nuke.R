@@ -21,7 +21,7 @@ nuke <- function(data,
                  where = NULL,
                  which_cols = colnames(data)) {
   data.1 <- data %>%
-    mutate(..ID_COL.. = 1:n())
+    dplyr::mutate(..ID_COL.. = 1:n())
 
   danger_zone <- data.1 %>%
     (function(x) {
@@ -29,17 +29,17 @@ nuke <- function(data,
         x
       } else {
         # apply the filter
-        x %>% filter(eval(rlang::parse_expr(where)))
+        x %>% dplyr::filter(eval(rlang::parse_expr(where)))
       }
     }) %>%
     (function(x) {
       if (nrow(x) > 0) {
         x %>%
-          mutate(
-            across(
-              all_of(which_cols),
+          dplyr::mutate(
+            dplyr::across(
+              tidyselect::all_of(which_cols),
               ~ if (is.na(nuke_value)) {
-                replace_na(x, ash)
+                tidyr::replace_na(x, ash)
               } else if (exact) {
                 replace(x, x == nuke_value, ash)
               } else {
@@ -56,25 +56,25 @@ nuke <- function(data,
     (function(x) {
       if (is.null(where)) {
         x %>%
-          filter(..ID_COL.. == 0)
+          dplyr::filter(..ID_COL.. == 0)
       } else {
         # apply the filter
         x %>%
-          filter(!eval(rlang::parse_expr(where)))
+          dplyr::filter(!eval(rlang::parse_expr(where)))
       }
     })
 
 
   aftermath <- data.1 %>%
-    select(..ID_COL..) %>%
-    left_join(
-      bind_rows(
+    dplyr::select(..ID_COL..) %>%
+    dplyr::left_join(
+      dplyr::bind_rows(
         safe_zone,
         danger_zone
       ),
       by = "..ID_COL.."
     ) %>%
-    select(-..ID_COL..)
+    dplyr::select(-..ID_COL..)
 
   return(aftermath)
 }
