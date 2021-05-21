@@ -12,6 +12,7 @@
 #' nuke(mtcars, 6, "IT WORKED AGAIN", where = "mpg == 21.0")
 #' nuke(mtcars, 6)
 #' @importFrom tidyr replace_na
+#' @importFrom ezextras "%~%"
 #' @import dplyr
 #' @export
 nuke <- function(data,
@@ -43,7 +44,7 @@ nuke <- function(data,
               } else if (exact) {
                 replace(x, x == nuke_value, ash)
               } else {
-                replace(x, x %=~% nuke_value, ash)
+                replace(x, x %~% nuke_value, ash)
               }
             )
           )

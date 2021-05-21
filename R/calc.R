@@ -9,6 +9,7 @@
 #' @examples
 #' calc(mpg, "average mpg", "mean(c(cty, hwy), na.rm = TRUE)")
 #' @importFrom dplyr "%>%" mutate
+#' @importFrom ezextras "%&%"
 #' @export
 
 # TODO: if a column is going to be overwritten, print a message for each column name
