@@ -12,11 +12,17 @@
 #' @importFrom ezextras "%&%"
 #' @export
 
-# TODO: if a column is going to be overwritten, print a message for each column name
 # TODO: if a formula references a column that doesn't exist in df, exclude it
 # TODO: add fun param giving the option to send an error or warning if a formula contains a column
 #       that doesn't exist in df
 calc <- function(df, labels, formulas, prefix = "") {
+  if (any(labels %in% colnames(df))) {
+    overwriting <-
+      labels[which(labels %in% colnames(df))] %>%
+      paste(collapse = ", ")
+    cli::cli_alert("Overwriting existing columns: {overwriting}")
+  }
+
   mutate_vec <-
     setNames(
       rlang::parse_exprs(formulas),
