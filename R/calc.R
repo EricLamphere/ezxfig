@@ -8,7 +8,8 @@
 #' @return A data frame with the newly calculated columns.
 #' @examples
 #' calc(mpg, "average mpg", "mean(c(cty, hwy), na.rm = TRUE)")
-#' @importFrom dplyr "%>%" mutate
+#' @importFrom magrittr "%>%"
+#' @importFrom dplyr mutate
 #' @importFrom ezextras "%&%"
 #' @export
 
