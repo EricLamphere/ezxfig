@@ -7,6 +7,7 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/EricLamphere/ezxfig/actions/workflows/check-release.yaml/badge.svg?branch=main)](https://github.com/EricLamphere/ezxfig/actions/workflows/check-release.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ezxfig)](https://CRAN.R-project.org/package=ezxfig)
 <!-- badges: end -->
@@ -25,7 +26,7 @@ remotes::install_github("https://github.com/EricLamphere/ezxfig.git")
 
 ## Code of Conduct
 
-Please note that the ezxplor project is released with a [Contributor
-Code of
+Please note that the ezxfig project is released with a [Contributor Code
+of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
