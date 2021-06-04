@@ -18,7 +18,10 @@ RoxygenNote: 7.1.1
 Imports: 
     dplyr,
     emo (>= 0.0.0.9000),
-    ezextras (>= 0.0.1)
+    magrittr,
+    ezextras (>= 0.0.1),
+    tidyr,
+    crayon
 Remotes: 
     EricLamphere/ezextras,
     hadley/emo
