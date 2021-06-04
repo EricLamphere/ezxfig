@@ -6,7 +6,7 @@ Authors@R:
            family = "Lamphere",
            role = c("aut", "cre"),
            email = "ericjlamphere@gmail.com")
-Description: Provides convenient functions for manipulating data frames
+Description: Provides convenient functions for manipulating data frames.
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0)

@@ -11,6 +11,7 @@
 #' @importFrom magrittr "%>%"
 #' @importFrom dplyr mutate
 #' @importFrom ezextras "%&%"
+#' @importFrom stats setNames
 #' @export
 
 # TODO: if a formula references a column that doesn't exist in df, exclude it
