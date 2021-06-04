@@ -126,6 +126,18 @@
       "Repository": "CRAN",
       "Hash": "ec8ca05cffcc70569eaaad8469d2a3a7"
     },
+    "ezextras": {
+      "Package": "ezextras",
+      "Version": "0.0.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "ezextras",
+      "RemoteUsername": "EricLamphere",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "52aaf15e7fdb6ce75d954139a568bed756907e2e",
+      "Hash": "45d63ee38a02a2b5f6e8e99db2ea3f67"
+    },
     "fansi": {
       "Package": "fansi",
       "Version": "0.5.0",

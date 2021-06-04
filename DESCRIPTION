@@ -22,7 +22,9 @@ Imports:
     ezextras (>= 0.0.1),
     tidyr,
     crayon,
-    tidyselect
+    tidyselect,
+    rlang,
+    cli
 Remotes: 
     EricLamphere/ezextras,
     hadley/emo

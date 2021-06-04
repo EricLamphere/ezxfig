@@ -7,7 +7,7 @@
 #' @param prefix A prefix to append to the beginning of all of the column names in \code{labels}.
 #' @return A data frame with the newly calculated columns.
 #' @examples
-#' dplyr::tibble(x = c(1,2,3), y = c(2,2,2)) %>% calc(labels = c("x_times_y"),formulas = c("x * y"))
+#' calc(dplyr::tibble(x = c(1,2,3), y = c(2,2,2)), labels = c("x_times_y"),formulas = c("x * y"))
 #' @importFrom magrittr "%>%"
 #' @importFrom dplyr mutate
 #' @importFrom ezextras "%&%"
