@@ -1,6 +1,6 @@
 
 #' Replace All Values in Data Frame
-#' @param df The data frame to which you're replacing values.
+#' @param data The data frame to which you're replacing values.
 #' @param nuke_value The value you want to replace with \code{ash}.
 #' @param ash The value you want to replace \code{nuke_value} with.
 #' @param exact Logical indicating whether or not you want to use \code{grepl(ignore.case = TRUE, perl = TRUE)} style regex.
@@ -21,8 +21,33 @@ nuke <- function(data,
                  exact = TRUE,
                  where = NULL,
                  which_cols = colnames(data)) {
-  data.1 <- data %>%
-    dplyr::mutate(..ID_COL.. = 1:n())
+  class_convert <-
+    paste0("as.", class(ash)) %>%
+    match.fun()
+
+  tryCatch(
+    {
+      cli::cli_alert_warning("converting {paste(which_cols, collapse = ', ')} to {class(ash)}")
+
+      data.1 <- data %>%
+        dplyr::mutate(
+          ..ID_COL.. = 1:n(),
+          dplyr::across(
+            tidyselect::all_of(which_cols),
+            ~ class_convert(.x)
+          )
+        )
+    },
+    error = function(e){
+      cli::cli_alert_danger(e)
+      stop(paste0(
+        "Failed trying to convert one of ",
+        paste(which_cols, collapse = ", "),
+        " to ",
+        class(ash)
+      ))
+    }
+  )
 
   danger_zone <- data.1 %>%
     (function(x) {
@@ -30,7 +55,8 @@ nuke <- function(data,
         x
       } else {
         # apply the filter
-        x %>% dplyr::filter(eval(rlang::parse_expr(where)))
+        x %>%
+          dplyr::filter(eval(rlang::parse_expr(where)))
       }
     }) %>%
     (function(x) {
@@ -40,11 +66,11 @@ nuke <- function(data,
             dplyr::across(
               tidyselect::all_of(which_cols),
               ~ if (is.na(nuke_value)) {
-                tidyr::replace_na(x, ash)
+                tidyr::replace_na(.x, ash)
               } else if (exact) {
-                replace(x, x == nuke_value, ash)
+                replace(.x, .x == nuke_value, ash)
               } else {
-                replace(x, x %~% nuke_value, ash)
+                replace(.x, .x %~% nuke_value, ash)
               }
             )
           )

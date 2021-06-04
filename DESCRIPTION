@@ -21,7 +21,8 @@ Imports:
     magrittr,
     ezextras (>= 0.0.1),
     tidyr,
-    crayon
+    crayon,
+    tidyselect
 Remotes: 
     EricLamphere/ezextras,
     hadley/emo

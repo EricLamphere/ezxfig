@@ -14,6 +14,8 @@ nuke(
 )
 }
 \arguments{
+\item{data}{The data frame to which you're replacing values.}
+
 \item{nuke_value}{The value you want to replace with \code{ash}.}
 
 \item{ash}{The value you want to replace \code{nuke_value} with.}
@@ -23,8 +25,6 @@ nuke(
 \item{where}{Filter applied to the data indicating the conditions required for the values to be replaced. Requires a string input, but functions the same way \code{dplyr::filter} does.}
 
 \item{which_cols}{The columns across which the replacements will be applied. Use this if some columns that don't contain \code{nuke_value} are returning as a different class than they were in the original \code{data} input}
-
-\item{df}{The data frame to which you're replacing values.}
 }
 \value{
 A data frame with the all occurrences of \code{nuke_value} replaced with \code{ash}.
