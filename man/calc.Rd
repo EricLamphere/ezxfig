@@ -22,5 +22,5 @@ A data frame with the newly calculated columns.
 Create new columns using a list of column names (labels) and formulas. \code{labels} and \code{formulas} should both be character vectors of the same length
 }
 \examples{
-calc(mpg, "average mpg", "mean(c(cty, hwy), na.rm = TRUE)")
+dplyr::tibble(x = c(1,2,3), y = c(2,2,2)) \%>\% calc(labels = c("x_times_y"),formulas = c("x * y"))
 }

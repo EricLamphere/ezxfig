@@ -2,6 +2,6 @@
   packageStartupMessage(
     emo::ji("beers"),
     crayon::white(" ezxfig "),
-    crayon::cyan(packageVersion("ezxfig"))
+    crayon::cyan(utils::packageVersion("ezxfig"))
   )
 }

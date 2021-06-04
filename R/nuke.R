@@ -8,7 +8,6 @@
 #' @param which_cols The columns across which the replacements will be applied. Use this if some columns that don't contain \code{nuke_value} are returning as a different class than they were in the original \code{data} input
 #' @return A data frame with the all occurrences of \code{nuke_value} replaced with \code{ash}.
 #' @examples
-#' nuke(band_members, "Mick", "IT WORKED")
 #' nuke(mtcars, 6, "IT WORKED AGAIN", where = "mpg == 21.0")
 #' nuke(mtcars, 6)
 #' @importFrom tidyr replace_na

@@ -33,7 +33,6 @@ A data frame with the all occurrences of \code{nuke_value} replaced with \code{a
 Replace All Values in Data Frame
 }
 \examples{
-nuke(band_members, "Mick", "IT WORKED")
 nuke(mtcars, 6, "IT WORKED AGAIN", where = "mpg == 21.0")
 nuke(mtcars, 6)
 }
