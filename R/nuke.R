@@ -28,7 +28,7 @@ nuke <- function(data,
 
       data.1 <- data %>%
         dplyr::mutate(
-          ..ID_COL.. = 1:n(),
+          ..ID_COL.. = 1:dplyr::n(),
           dplyr::across(
             tidyselect::all_of(which_cols),
             ~ class_convert(.x)
