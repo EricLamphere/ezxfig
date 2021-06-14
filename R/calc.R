@@ -9,9 +9,7 @@
 #' @examples
 #' calc(dplyr::tibble(x = c(1,2,3), y = c(2,2,2)), labels = c("x_times_y"),formulas = c("x * y"))
 #' @importFrom magrittr "%>%"
-#' @importFrom dplyr mutate
 #' @importFrom ezextras "%&%"
-#' @importFrom stats setNames
 #' @export
 
 # TODO: if a formula references a column that doesn't exist in df, exclude it
@@ -26,7 +24,7 @@ calc <- function(df, labels, formulas, prefix = "") {
   }
 
   mutate_vec <-
-    setNames(
+    stats::setNames(
       rlang::parse_exprs(formulas),
       prefix %&% labels
     )

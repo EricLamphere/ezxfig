@@ -10,9 +10,7 @@
 #' @examples
 #' nuke(mtcars, 6, "IT WORKED AGAIN", where = "mpg == 21.0")
 #' nuke(mtcars, 6)
-#' @importFrom tidyr replace_na
 #' @importFrom ezextras "%~%"
-#' @import dplyr
 #' @export
 nuke <- function(data,
                  nuke_value = NA,

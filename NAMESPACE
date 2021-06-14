@@ -2,10 +2,6 @@
 
 export(calc)
 export(nuke)
-import(dplyr)
-importFrom(dplyr,mutate)
 importFrom(ezextras,"%&%")
 importFrom(ezextras,"%~%")
 importFrom(magrittr,"%>%")
-importFrom(stats,setNames)
-importFrom(tidyr,replace_na)
